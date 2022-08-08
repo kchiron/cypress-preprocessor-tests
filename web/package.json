@@ -1,0 +1,69 @@
+{
+  "name": "invictus-e2e-tests-cypress",
+  "version": "0.0.0",
+  "license": "ISC",
+  "scripts": {
+    "test": "cypress run",
+    "tags": "cypress run -e TAGS=$npm_config_tags --browser chrome",
+    "cy:tags": "cross-env-shell cypress-tags run -e TAGS=$npm_config_tags",
+    "cy:open": "cypress open",
+    "cy:verify": "cypress verify",
+    "cy:info": "cypress info",
+    "cy:version": "cypress version",
+    "lint": "eslint \"cypress/**/*.{ts,js}\"",
+    "prettier": "prettier .",
+    "check-types": "tsc --noEmit --project tsconfig.json",
+    "check-format": "npm run prettier -- --check",
+    "validate": "npm-run-all --parallel lint check-types check-format",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.1.0",
+    "@cypress/webpack-preprocessor": "5.11.1",
+    "@faker-js/faker": "6.3.1",
+    "@testing-library/cypress": "^8.0.3",
+    "@types/cypress-cucumber-preprocessor": "4.0.1",
+    "@types/fs-extra": "9.0.13",
+    "@types/node": "14.18.5",
+    "@types/tough-cookie": "4.0.2",
+    "@typescript-eslint/eslint-plugin": "5.22.0",
+    "@typescript-eslint/parser": "5.22.0",
+    "axios": "0.27.2",
+    "cross-env": "7.0.3",
+    "cypress": "10.4.0",
+    "date-fns": "2.28.0",
+    "eslint": "8.15.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "fs-extra": "10.1.0",
+    "google-libphonenumber": "3.2.27",
+    "got": "11.8.5",
+    "lint-staged": "10.5.4",
+    "node-polyfill-webpack-plugin": "1.1.4",
+    "npm-run-all": "4.1.5",
+    "path": "0.12.7",
+    "prettier": "2.6.2",
+    "tough-cookie": "4.0.0",
+    "ts-loader": "9.3.0",
+    "typescript": "4.6.4",
+    "webpack": "5.72.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integration",
+    "commonPath": "cypress/integration",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports",
+      "fileSuffix": ""
+    }
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "12.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "latest",
+    "moment": "2.29.4",
+    "moment-with-locales-es6": "1.0.1",
+    "tsconfig-paths-webpack-plugin": "3.5.2"
+  }
+}
